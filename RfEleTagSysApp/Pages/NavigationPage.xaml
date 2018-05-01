@@ -1,0 +1,44 @@
+﻿<Page x:Class="RfEleTagSysApp.Pages.NavigationPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:RfEleTagSysApp.Pages"
+      mc:Ignorable="d" 
+      Title="NavigationPage">
+    <Grid Width="600" Height="600" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="450"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Grid.Column="0" Height="80">
+            <TextBlock x:Name="tb_currentUser" Text="Zhang" HorizontalAlignment="Right"></TextBlock>
+            <Button x:Name="btn_logout" Height="21" Width="80" Content="登出" HorizontalAlignment="Right" VerticalContentAlignment="Top" Click="btn_logout_Click"></Button>
+        </Grid>
+        <Grid Width="Auto" Margin="20,120,40,20" Grid.Row="1" Grid.Column="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Column="0" Grid.Row="0" Text="预定任务" FontSize="32"></TextBlock>
+            <Button x:Name="btn_takeMedicineTask" Grid.Column="0" Grid.Row="1" Content="取药任务" FontSize="20" Click="btn_takeMedicineTask_Click"></Button>
+            <Button x:Name="btn_addMedicineTask" Grid.Column="0" Grid.Row="2" Content="补药任务" FontSize="20" Click="btn_addMedicineTask_Click"></Button>
+            <Button x:Name="btn_previewTask" Grid.Column="0" Grid.Row="3" Content="查看任务" FontSize="20" Click="btn_previewTask_Click"></Button>
+            <TextBlock Grid.Column="0" Grid.Row="4" Text="信息查询" FontSize="32"></TextBlock>
+            <Button x:Name="btn_medicineInfo" Grid.Column="0" Grid.Row="5" Content="药品信息" FontSize="20" Click="btn_medicineInfo_Click"></Button>
+
+            <TextBlock Grid.Column="1" Grid.Row="0" Text="设置" FontSize="32"></TextBlock>
+            <Button x:Name="btn_communicationSettings" Grid.Column="1" Grid.Row="1" Content="通信设置" FontSize="20" Click="btn_communicationSettings_Click"></Button>
+            <Button x:Name="btn_systemSettings" Grid.Column="1" Grid.Row="2" Content="系统设置" FontSize="20" Click="btn_systemSettings_Click"></Button>
+        </Grid>
+    </Grid>
+</Page>
