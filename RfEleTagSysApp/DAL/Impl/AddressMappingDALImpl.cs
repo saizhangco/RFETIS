@@ -89,5 +89,11 @@ namespace RfEleTagSysApp.DAL.Impl
                     new MySqlParameter("@id",   addrmapping.Id)
                 }) > 0;
         }
+
+        public bool empty()
+        {
+            SqlHelper.ExecuteNonQuery("delete from addressmapping where 1=1");
+            return true;
+        }
     }
 }

@@ -19,6 +19,9 @@
         <ComboBox x:Name="cb_dataBitsList" ItemsSource="{Binding DataBits}" HorizontalAlignment="Left" Margin="87,106,0,0" VerticalAlignment="Top" Width="120"/>
         <ComboBox x:Name="cb_parityList" ItemsSource="{Binding Parity}" HorizontalAlignment="Left" Margin="88,140,0,0" VerticalAlignment="Top" Width="120"/>
         <ComboBox x:Name="cb_stopBitsList" ItemsSource="{Binding StopBits}" HorizontalAlignment="Left" Margin="88,176,0,0" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="btn_saveConfig" Content="Button" HorizontalAlignment="Left" Margin="39,215,0,0" VerticalAlignment="Top" Width="173" Height="31" Click="btn_saveConfig_Click"/>
+        <Button x:Name="btn_saveConfig" Content="保存" HorizontalAlignment="Left" Margin="39,215,0,0" VerticalAlignment="Top" Width="173" Height="31" Click="btn_saveConfig_Click"/>
+        <Button x:Name="btn_lastPage" Content="Button" HorizontalAlignment="Left" Margin="25,0,0,20" VerticalAlignment="Bottom" Width="75" Click="btn_lastPage_Click"/>
+        <Button x:Name="btn_indexPage" Content="Button" HorizontalAlignment="Left" Margin="125,0,0,20" VerticalAlignment="Bottom" Width="75" Click="btn_indexPage_Click"/>
+        <Button x:Name="btn_refresh" Content="刷新" HorizontalAlignment="Left" Margin="214,41,0,0" VerticalAlignment="Top" Width="75" Click="btn_refresh_Click"/>
     </Grid>
 </Page>

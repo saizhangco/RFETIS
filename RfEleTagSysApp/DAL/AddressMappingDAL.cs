@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace RfEleTagSysApp.DAL
 {
-    interface AddressMappingDAL
+    public interface AddressMappingDAL
     {
         bool create(AddressMapping addrmapping);
         bool delete(long id);
@@ -16,5 +16,6 @@ namespace RfEleTagSysApp.DAL
         AddressMapping findMappingById(long id);
         AddressMapping findMappingByGuid(long medicineId);
         List<AddressMapping> list();
+        bool empty();
     }
 }

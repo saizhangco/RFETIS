@@ -22,12 +22,14 @@
                 <DataGridTextColumn Binding="{Binding Query}" Header="查询"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
+        <!--
         <Label x:Name="l_refreshSerial" Content="端口" HorizontalAlignment="Left" Margin="28,16,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.234,-0.268"/>
         <ComboBox x:Name="cb_serialList" HorizontalAlignment="Left" Margin="77,16,0,0" VerticalAlignment="Top" Width="120"/>
         <Button x:Name="btn_serialOperate" Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="217,17,0,0" Click="btn_serialOperate_Click"/>
         <Button x:Name="btn_refreshSerial" Content="刷新" HorizontalAlignment="Left" Margin="307,17,0,0" VerticalAlignment="Top" Width="75" Click="btn_refreshSerial_Click"/>
-        <Button x:Name="btn_takeMedicines" Content="Button" HorizontalAlignment="Left" Margin="692,18,0,0" VerticalAlignment="Top" Width="75" Click="btn_takeMedicines_Click"/>
-        <Button x:Name="btn_lastPage" Content="Button" HorizontalAlignment="Left" Margin="25,0,0,20" VerticalAlignment="Bottom" Width="75" Click="btn_lastPage_Click"/>
-        <Button x:Name="btn_indexPage" Content="Button" HorizontalAlignment="Left" Margin="125,0,0,20" VerticalAlignment="Bottom" Width="75" Click="btn_indexPage_Click"/>
+        -->
+        <Button x:Name="btn_takeMedicines" Content="开始给药" HorizontalAlignment="Left" Margin="692,18,0,0" VerticalAlignment="Top" Width="75" Click="btn_takeMedicines_Click"/>
+        <Button x:Name="btn_lastPage" Content="上一页" HorizontalAlignment="Left" Margin="25,0,0,20" VerticalAlignment="Bottom" Width="75" Click="btn_lastPage_Click"/>
+        <Button x:Name="btn_indexPage" Content="首页" HorizontalAlignment="Left" Margin="125,0,0,20" VerticalAlignment="Bottom" Width="75" Click="btn_indexPage_Click"/>
     </Grid>
 </Page>

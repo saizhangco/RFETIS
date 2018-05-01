@@ -12,10 +12,13 @@ namespace RfEleTagSysApp.Controller
         public string Open = "打开";
         public string Close = "关闭";
         public string Refresh = "刷新";
+        public string Save = "保存";
         public string GetSerialListError = "获取串口列表失败";
         public string SelectSerialPortTip = "请先选择串口";
         public string OpenSerialPortFailed = "打开串口失败";
         public string RefreshAfterCloseSerialPort = "请先关闭串口再刷新";
+        public string ConfigSerialPortWithOpenSerialFailed = "串口打开失败，请先配置串口!";
+        public string AddressMappingEmptyFailed = "通讯地址信息清空失败，请联系系统管理员!";
 
         public string TakeMedicine = "[取药]";
         public string AddMedicine = "[补药]";

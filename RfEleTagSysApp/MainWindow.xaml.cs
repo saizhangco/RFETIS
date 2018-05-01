@@ -17,6 +17,8 @@ using RfEleTagSysApp.Controller;
 using RfEleTagSysApp.FormModel;
 using RfEleTagSysApp.Controller.Impl;
 using RfEleTagSysApp.Pages;
+using RfEleTagSysApp.DAL;
+using RfEleTagSysApp.DAL.Impl;
 
 namespace RfEleTagSysApp
 {
@@ -28,6 +30,12 @@ namespace RfEleTagSysApp
         public UserForm currentUser = null;
         public Page indexPage = null;
         public StaticTextResource_zh_CN resource = new StaticTextResource_zh_CN();
+        public EleTagController eleTagController = new EleTagControllerImpl();
+        private AddressMappingDAL addressMappingDAL = new AddressMappingDALImpl();
+
+        private void EleTagResponseHandler(int guid, EleTagResponseState state, string msg)
+        {
+        }
 
         public MainWindow()
         {
@@ -47,6 +55,18 @@ namespace RfEleTagSysApp
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            //1 清空AddressMapping中的数据
+            if (!addressMappingDAL.empty())
+            {
+                MessageBox.Show(resource.AddressMappingEmptyFailed);
+            }
+            //2 添加空Handler
+            eleTagController.setEleTagResponseHandler(EleTagResponseHandler);
+            //3 根据数据中保存的配置，打开串口
+            if ( !eleTagController.openSerial())
+            {
+                MessageBox.Show(resource.ConfigSerialPortWithOpenSerialFailed);
+            }
             //TakeMedicinePage page = new TakeMedicinePage();
             indexPage = new NavigationPage(this);
             ContentControl.Content = new Frame {

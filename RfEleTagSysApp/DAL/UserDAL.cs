@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace RfEleTagSysApp.DAL
 {
-    interface UserDAL
+    public interface UserDAL
     {
         bool create(User user);
         bool delete(long id);

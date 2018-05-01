@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace RfEleTagSysApp.Controller
 {
-    interface EleTagController
+    public interface EleTagController
     {
         int takeMedicine(int guid, string address, int amount);
         int addMedicine(int guid, string address, int amount);
@@ -21,6 +21,7 @@ namespace RfEleTagSysApp.Controller
         void setEleTagResponseHandler(EleTagResponseHandler handler);
         List<string> getSerialList();
         bool openSerial(string portName);
+        bool openSerial();
         bool closeSerial();
     }
 }

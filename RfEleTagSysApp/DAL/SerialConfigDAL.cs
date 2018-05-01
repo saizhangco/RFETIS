@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace RfEleTagSysApp.DAL
 {
-    interface SerialConfigDAL
+    public interface SerialConfigDAL
     {
         bool update(SerialConfig config);
         SerialConfig get();

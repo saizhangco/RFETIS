@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace RfEleTagSysApp.DAL
 {
-    interface RoleDAL
+    public interface RoleDAL
     {
         bool create(Role role);
         bool delete(long id);

@@ -16,13 +16,13 @@ using RfEleTagSysApp.Model;
 
 namespace RfEleTagSysApp.Controller.Impl
 {
-    class RespCache
+    public class RespCache
     {
         public int Guid { get; set; }
         public EleTagResponseState State { get; set; }
     }
 
-    class EleTagControllerImpl : EleTagController
+    public class EleTagControllerImpl : EleTagController
     {
 
         private SerialCom serialCom;
@@ -87,8 +87,8 @@ namespace RfEleTagSysApp.Controller.Impl
             while (count > 0)
             {
                 if (Cache.Guid == (int)medicine.Id && 
-                    (Cache.State == EleTagResponseState.TAKING 
-                    || Cache.State == EleTagResponseState.TAKING_ERROR ))
+                    (Cache.State == EleTagResponseState.ADDING 
+                    || Cache.State == EleTagResponseState.ADDING_ERROR ))
                 {
                     count = 0;
                 }
@@ -100,6 +100,31 @@ namespace RfEleTagSysApp.Controller.Impl
 
         public int addMedicine(int guid, string address, int amount)
         {
+            RequestMessage requestMessage = new RequestMessage();
+            requestMessage.Length = 0;
+            requestMessage.Guid = ConvertCom.IntToChar4(guid);
+            requestMessage.ShortAddr = ConvertCom.StringToChar4(address);
+            // "ADME"
+            requestMessage.Command = ConvertCom.StringToChar4("ADME");
+            requestMessage.Length = requestMessage.setValue(amount);
+
+            Cache.Guid = 0;
+            Cache.State = EleTagResponseState.NONE;
+            serialCom.write(requestMessage.getMessageByte(), 0, 14 + requestMessage.Length);
+            // 等待成消息返回
+            // 最长等待时间10s，循环判断时间间隔10ms
+            int count = 1000;
+            while (count > 0)
+            {
+                if (Cache.Guid == guid &&
+                    (Cache.State == EleTagResponseState.ADDING
+                    || Cache.State == EleTagResponseState.ADDING_ERROR))
+                {
+                    count = 0;
+                }
+                Thread.Sleep(10);
+                count--;
+            }
             return 0;
         }
 
@@ -526,6 +551,11 @@ namespace RfEleTagSysApp.Controller.Impl
         {
             serialCom.close();
             return true;
+        }
+
+        public bool openSerial()
+        {
+            return serialCom.open() == 0;
         }
     }
 }

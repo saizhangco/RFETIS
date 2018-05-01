@@ -106,6 +106,8 @@ namespace RfEleTagSysApp.Pages
 
         private void btn_logout_Click(object sender, RoutedEventArgs e)
         {
+            //1 关闭串口
+            parent.eleTagController.closeSerial();
             LoginWindow window = new LoginWindow();
             window.Show();
             parent.Close();

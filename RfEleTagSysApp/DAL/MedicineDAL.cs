@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace RfEleTagSysApp.DAL
 {
-    interface MedicineDAL
+    public interface MedicineDAL
     {
         bool create(Medicine medicine);
         bool delete(long id);

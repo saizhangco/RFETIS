@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace RfEleTagSysApp.DAL
 {
-    interface TakeMedicineTaskDAL
+    public interface TakeMedicineTaskDAL
     {
         bool create(TakeMedicineTask task);
         bool delete(int taskId);

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace RfEleTagSysApp.DAL
 {
-    interface SystemConfigDAL
+    public interface SystemConfigDAL
     {
         bool create(SystemConfig config);
         bool delete(string k);

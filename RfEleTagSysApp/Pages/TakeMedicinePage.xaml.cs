@@ -45,13 +45,13 @@ namespace RfEleTagSysApp.Pages
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            l_refreshSerial.Content = resource.Port;
-            btn_serialOperate.Content = resource.Open;
-            btn_refreshSerial.Content = resource.Refresh;
+            //l_refreshSerial.Content = resource.Port;
+            //btn_serialOperate.Content = resource.Open;
+            //btn_refreshSerial.Content = resource.Refresh;
             btn_lastPage.Content = resource.LastPage;
             btn_indexPage.Content = resource.IndexPage;
             btn_takeMedicines.Content = resource.StartTakeMedicine;
-            eleTagController.setEleTagResponseHandler(EleTagResponseHandler);
+            parentWindow.eleTagController.setEleTagResponseHandler(EleTagResponseHandler);
 
             //list.Add(new MedicineForm() { Name = "安定", Amount = 10, Guid = 1, Address = "", State = 0 });
             //list.Add(new MedicineForm() { Name = "阿司匹林", Amount = 20, Guid = 2, Address = "", State = 0 });
@@ -71,7 +71,7 @@ namespace RfEleTagSysApp.Pages
             }
             dg_medicineList.ItemsSource = list;
 
-
+            /*
             List<string> serialList = eleTagController.getSerialList();
             if (serialList == null)
             {
@@ -84,7 +84,7 @@ namespace RfEleTagSysApp.Pages
                 {
                     cb_serialList.Text = serialList[0];
                 }
-            }
+            }*/
         }
 
         private void EleTagResponseHandler(int guid, EleTagResponseState state, string msg)
@@ -151,6 +151,7 @@ namespace RfEleTagSysApp.Pages
 
         private void btn_refreshSerial_Click(object sender, RoutedEventArgs e)
         {
+            /*
             if ((string)btn_serialOperate.Content == resource.Open)
             {
                 List<string> serialList = eleTagController.getSerialList();
@@ -167,11 +168,12 @@ namespace RfEleTagSysApp.Pages
             else
             {
                 MessageBox.Show(resource.RefreshAfterCloseSerialPort);
-            }
+            }*/
         }
 
         private void btn_serialOperate_Click(object sender, RoutedEventArgs e)
         {
+            /*
             if ((string)btn_serialOperate.Content == resource.Open)
             {
                 if (cb_serialList.Text == "")
@@ -190,7 +192,7 @@ namespace RfEleTagSysApp.Pages
             {
                 eleTagController.closeSerial();
                 btn_serialOperate.Content = resource.Open;
-            }
+            }*/
         }
 
         private void btn_takeMedicines_Click(object sender, RoutedEventArgs e)
@@ -200,7 +202,7 @@ namespace RfEleTagSysApp.Pages
                 if (form.Address != "")
                 {
                     form.Request = resource.TakeMedicine + resource.RequestSending;
-                    eleTagController.takeMedicine(form.Guid, form.Address, form.Amount);
+                    parentWindow.eleTagController.takeMedicine(form.Guid, form.Address, form.Amount);
                 }
                 else
                 {
