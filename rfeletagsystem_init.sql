@@ -35,6 +35,8 @@ CREATE TABLE Medicine(
     Id integer PRIMARY KEY auto_increment,
     Name VARCHAR(255) NOT NULL,
     Guid integer not null unique,
+    MaximumQuantity integer not null,
+    ResidualQuantity integer not null,
     Description VARCHAR(255)
 );
 
@@ -114,22 +116,22 @@ values
 insert into SystemConfig(Id,K,V)
 values
     (1,'Serial.portName','COM1'),
-    (2,'Serial.baudRate','9600'),
+    (2,'Serial.baudRate','115200'),
     (3,'Serial.dataBits','8'),
     (4,'Serial.parity','None'),
     (5,'Serial.stopBits','1');
 
-insert into Medicine(Id,Name,Guid,Description)
+insert into Medicine(Id,Name,Guid,Description,MaximumQuantity,ResidualQuantity)
 values
-	(1,"麦迪霉素",1,"麦迪霉素"),
-	(2,"复方新诺明",2,"复方新诺明"),
-	(3,"诺氟沙星",3,"诺氟沙星"),
-	(4,"乙酰螺旋霉素",4,"乙酰螺旋霉素"),
-	(5,"黄连素",5,"黄连素"),
-	(6,"克霉唑",6,"克霉唑"),
-	(7,"多酶片",7,"多酶片"),
-	(8,"复合维生素Ｂ",8,"复合维生素Ｂ"),
-	(9,"吗丁啉",9,"吗丁啉");
+	(1,"麦迪霉素",1,"麦迪霉素",50,30),
+	(2,"复方新诺明",2,"复方新诺明",50,1),
+	(3,"诺氟沙星",3,"诺氟沙星",50,48),
+	(4,"乙酰螺旋霉素",4,"乙酰螺旋霉素",50,30),
+	(5,"黄连素",5,"黄连素",50,30),
+	(6,"克霉唑",6,"克霉唑",50,30),
+	(7,"多酶片",7,"多酶片",50,30),
+	(8,"复合维生素Ｂ",8,"复合维生素Ｂ",50,30),
+	(9,"吗丁啉",9,"吗丁啉",50,30);
 	
 insert into TakeMedicineTask(Id,Name,Items_All,Items_Complete,Manager,Operator,State)
 values

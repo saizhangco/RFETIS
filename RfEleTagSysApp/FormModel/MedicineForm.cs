@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RfEleTagSysApp.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -13,10 +14,59 @@ namespace RfEleTagSysApp.FormModel
         private string m_request;
         private string m_ack;
         private string m_query;
+        private int m_max;
+        private int m_resi;
+        private Medicine m_medicine;
 
         public string Name { get; set; }
         public int Amount { get; set; }
         public int Guid { get; set; }
+        public int Max
+        {
+            get
+            {
+                return m_max;
+            }
+            set
+            {
+                m_max = value;
+                if (PropertyChanged != null)
+                {
+                    PropertyChanged.Invoke(this, new PropertyChangedEventArgs("Max"));
+                }
+            }
+        }
+        public int Resi
+        {
+            get
+            {
+                return m_resi;
+            }
+            set
+            {
+                m_resi = value;
+                if (m_medicine != null)
+                {
+                    m_medicine.ResidualQuantity = m_resi;
+                }
+                if (PropertyChanged != null)
+                {
+                    PropertyChanged.Invoke(this, new PropertyChangedEventArgs("Resi"));
+                }
+            }
+        }
+        public Medicine Medicine
+        {
+            get
+            {
+                return m_medicine;
+            }
+            set
+            {
+                m_medicine = value;
+            }
+        }
+
         public string Address
         {
             get { return m_address; }

@@ -23,11 +23,13 @@ namespace RfEleTagSysApp.DAL.Impl
 
         public bool create(Medicine medicine)
         {
-            return SqlHelper.ExecuteNonQuery("insert into medicine(name,guid,description) values(@name, @guid, @desc)",
+            return SqlHelper.ExecuteNonQuery("insert into medicine(name,guid,description,MaximumQuantity,ResidualQuantity) values(@name, @guid, @desc,@max,@resi)",
                 new MySqlParameter[] {
                     new MySqlParameter("@name", medicine.Name),
                     new MySqlParameter("@guid", medicine.Address.Guid),
-                    new MySqlParameter("@desc", medicine.Description)
+                    new MySqlParameter("@desc", medicine.Description),
+                    new MySqlParameter("@max", medicine.MaximumQuantity),
+                    new MySqlParameter("@resi", medicine.ResidualQuantity)
                 }) > 0;
         }
 
@@ -60,7 +62,9 @@ namespace RfEleTagSysApp.DAL.Impl
                     mapping.Addr = "";
                 }
                 medicine.Address = mapping;
-                medicine.Description = (string)row[3];
+                medicine.MaximumQuantity = (int)row[3];
+                medicine.ResidualQuantity = (int)row[4];
+                medicine.Description = (string)row[5];
             }
             return medicine;
         }
@@ -86,7 +90,9 @@ namespace RfEleTagSysApp.DAL.Impl
                     mapping.Addr = "";
                 }
                 medicine.Address = mapping;
-                medicine.Description = (string)row[3];
+                medicine.MaximumQuantity = (int)row[3];
+                medicine.ResidualQuantity = (int)row[4];
+                medicine.Description = (string)row[5];
             }
             return medicine;
         }
@@ -108,7 +114,9 @@ namespace RfEleTagSysApp.DAL.Impl
                     mapping.Addr = "";
                 }
                 medicine.Address = mapping;
-                medicine.Description = (string)row[3];
+                medicine.MaximumQuantity = (int)row[3];
+                medicine.ResidualQuantity = (int)row[4];
+                medicine.Description = (string)row[5];
                 medicineList.Add(medicine);
             }
             return medicineList;
@@ -116,12 +124,15 @@ namespace RfEleTagSysApp.DAL.Impl
 
         public bool update(Medicine medicine)
         {
-            return SqlHelper.ExecuteNonQuery("update medicine set name=@name,guid=@guid,description=@desc where id=@id)",
+            return SqlHelper.ExecuteNonQuery("update medicine set name=@name,guid=@guid,description=@desc,MaximumQuantity=@max,ResidualQuantity=@resi where id=@id",
                 new MySqlParameter[] {
                     new MySqlParameter("@name", medicine.Name),
                     new MySqlParameter("@guid", medicine.Address.Guid),
                     new MySqlParameter("@desc", medicine.Description),
+                    new MySqlParameter("@max", medicine.MaximumQuantity),
+                    new MySqlParameter("@resi", medicine.ResidualQuantity),
                     new MySqlParameter("@id",   medicine.Id)
+                    
                 }) > 0;
         }
     }

@@ -32,6 +32,7 @@ namespace RfEleTagSysApp
         public StaticTextResource_zh_CN resource = new StaticTextResource_zh_CN();
         public EleTagController eleTagController = new EleTagControllerImpl();
         private AddressMappingDAL addressMappingDAL = new AddressMappingDALImpl();
+        public MedicineDAL medicineDAL = new MedicineDALImpl();
 
         private void EleTagResponseHandler(int guid, EleTagResponseState state, string msg)
         {

@@ -66,7 +66,10 @@ namespace RfEleTagSysApp.Pages
                     Amount = item.Amount,
                     Guid = item.Medicine.Address.Guid,
                     Address = item.Medicine.Address.Addr,
-                    State = item.State
+                    State = item.State,
+                    Max = item.Medicine.MaximumQuantity,
+                    Resi = item.Medicine.ResidualQuantity,
+                    Medicine = item.Medicine
                 });
             }
             dg_medicineList.ItemsSource = list;
@@ -143,6 +146,8 @@ namespace RfEleTagSysApp.Pages
                         if (form.Guid == guid)
                         {
                             form.Ack = resource.AddMedicine + resource.QueryCompleted;
+                            form.Resi += form.Amount;
+                            parentWindow.medicineDAL.update(form.Medicine);
                             break;
                         }
                     }
@@ -200,6 +205,12 @@ namespace RfEleTagSysApp.Pages
         {
             foreach (MedicineForm form in list)
             {
+                form.Ack = "";
+                if (form.Amount > form.Max - form.Resi)
+                {
+                    form.Request = resource.AmountMore;
+                    continue;
+                }
                 if (form.Address != "")
                 {
                     form.Request = resource.TakeMedicine + resource.RequestSending;

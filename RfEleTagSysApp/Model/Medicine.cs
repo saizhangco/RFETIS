@@ -36,5 +36,8 @@ namespace RfEleTagSysApp.Model
             get { return address; }
             set { address = value; }
         }
+
+        public int MaximumQuantity { set; get; }
+        public int ResidualQuantity { set; get; }
     }
 }

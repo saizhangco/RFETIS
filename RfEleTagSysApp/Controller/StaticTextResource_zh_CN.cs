@@ -28,6 +28,8 @@ namespace RfEleTagSysApp.Controller
         public string RequestNoAddress = "地址不存在";
         public string QueryStart = "确认开始";
         public string QueryCompleted = "确认完成";
+        public string AmountLess = "无法取药，药量不足";
+        public string AmountMore = "无法补药，超过最大数量";
 
         public string SystemError = "系统错误";
 

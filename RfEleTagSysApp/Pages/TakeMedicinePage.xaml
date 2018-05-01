@@ -14,12 +14,14 @@
                   Width="Auto">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Name}" Header="名称"></DataGridTextColumn>
-                <DataGridTextColumn Binding="{Binding Amount}" Header="数量"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Amount}" Header="取药数量"></DataGridTextColumn>
                 <DataGridTextColumn Binding="{Binding Guid}" Header="ID"></DataGridTextColumn>
                 <DataGridTextColumn Binding="{Binding Address}" Header="通讯地址"></DataGridTextColumn>
                 <DataGridTextColumn Binding="{Binding Request}" Header="请求"></DataGridTextColumn>
                 <DataGridTextColumn Binding="{Binding Ack}" Header="确认"></DataGridTextColumn>
                 <DataGridTextColumn Binding="{Binding Query}" Header="查询"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Resi}" Header="剩余数量"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Max}" Header="最大数量"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
         <!--
