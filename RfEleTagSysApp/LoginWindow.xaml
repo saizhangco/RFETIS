@@ -6,6 +6,9 @@
         xmlns:local="clr-namespace:RfEleTagSysApp"
         mc:Ignorable="d"
         Title="LoginWindow" Loaded="Window_Loaded">
+    <Window.ContextMenu>
+        <ContextMenu/>
+    </Window.ContextMenu>
     <Grid x:Name="g_login">
         <TextBlock x:Name="label" Text="医疗电子标签管理系统" HorizontalAlignment="Center" Margin="0,-240,0,0" VerticalAlignment="Center" FontSize="32"/>
         <Grid Margin="0,0,0,0" VerticalAlignment="Center">
@@ -14,6 +17,6 @@
             <TextBox x:Name="tb_username"  HorizontalAlignment="Center" Height="30" Margin="120,-2,0,0" TextWrapping="Wrap" Text="{Binding Name}" VerticalAlignment="Top" Width="160" FontSize="20"/>
             <PasswordBox x:Name="tb_password" HorizontalAlignment="Center" Height="30" Margin="120,48,0,0" VerticalAlignment="Top" Width="160" FontSize="20"/>
         </Grid>
-        <Button x:Name="btn_login" Content="登录" FontSize="20" Width="200" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,160,0,0" Click="btn_login_Click"/>
+        <Button x:Name="btn_login" Content="登录" FontSize="20" Width="200" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,160,0,0" Click="btn_login_Click" IsDefault="True"/>
     </Grid>
 </Window>

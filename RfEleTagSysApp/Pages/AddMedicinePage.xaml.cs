@@ -131,7 +131,7 @@ namespace RfEleTagSysApp.Pages
                     {
                         if (form.Guid == guid)
                         {
-                            form.Query = resource.AddMedicine + resource.QueryStart;
+                            form.Ack = resource.AddMedicine + resource.QueryStart;
                             break;
                         }
                     }
@@ -142,7 +142,7 @@ namespace RfEleTagSysApp.Pages
                     {
                         if (form.Guid == guid)
                         {
-                            form.Query = resource.AddMedicine + resource.QueryCompleted;
+                            form.Ack = resource.AddMedicine + resource.QueryCompleted;
                             break;
                         }
                     }
