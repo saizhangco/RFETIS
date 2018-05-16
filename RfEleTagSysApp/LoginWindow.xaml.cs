@@ -32,6 +32,8 @@ namespace RfEleTagSysApp
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            //窗口最大化
+            WindowState = WindowState.Maximized;
             User user = new User();
             g_login.DataContext = user;
         }
@@ -47,8 +49,9 @@ namespace RfEleTagSysApp
                 User user = userController.findUserByName(tb_username.Text);
                 UserForm userForm = new UserForm { Id=user.Id, Name=user.Name, Password=user.Password, Role=user.Role };
                 MainWindow window = new MainWindow(userForm);
-                window.Show();
-                Close();
+                Hide();         //隐藏当前窗口
+                window.Show();  //显示新窗口
+                Close();        //关闭当前窗口
             }
             else
             {

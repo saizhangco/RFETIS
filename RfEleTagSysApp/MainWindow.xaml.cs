@@ -56,6 +56,8 @@ namespace RfEleTagSysApp
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            //0 窗口最大化
+            WindowState = WindowState.Maximized;
             //1 清空AddressMapping中的数据
             if (!addressMappingDAL.empty())
             {
